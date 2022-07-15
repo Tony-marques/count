@@ -1,0 +1,180 @@
+@use "./mixins" as mixin;
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-size: 14px;
+  font-weight: bold;
+  font-family: "Red Hat Text", sans-serif;
+}
+
+body {
+  background: linear-gradient(hsl(234, 17%, 12%), #241d2c);
+  position: relative;
+  height: 100vh;
+}
+
+.container {
+  background-image: url(../images/bg-stars.svg);
+  padding-top: 10rem;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.container .title {
+  color: white;
+  font-size: 1.5rem;
+  letter-spacing: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  @include mixin.xs {
+    width: 80%;
+    font-size: 1.2rem;
+  }
+}
+
+.bg-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 197px;
+  background: url("../images/pattern-hills.svg") no-repeat top / cover;
+}
+
+.count {
+  display: flex;
+  margin-top: 8rem;
+}
+
+.count-days p,
+.count-hours p,
+.count-minutes p,
+.count-seconds p {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  letter-spacing: 5px;
+  font-size: 1.1rem;
+  color: hsl(237, 18%, 59%);
+  @include mixin.sm {
+    font-size: 0.8rem;
+  }
+  @include mixin.xs {
+    font-size: 0.5rem;
+  }
+  @include mixin.xxs {
+    font-size: 0.4rem;
+  }
+}
+
+.item-container {
+  margin: 0 1rem;
+  position: relative;
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+  border-radius: 5px;
+  box-shadow: 0px 10px 1px hsl(234, 17%, 12%);
+  @include mixin.sm {
+    width: 100px;
+    height: 100px;
+  }
+  @include mixin.xs {
+    width: 75px;
+    height: 75px;
+    margin: 0 0.5rem;
+  }
+  @include mixin.xxs {
+    width: 55px;
+    height: 55px;
+    margin: 0 0.5rem;
+  }
+}
+
+.item {
+  position: relative;
+  height: 100%;
+  background: hsl(236, 21%, 26%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 6rem;
+  color: hsl(345, 95%, 68%);
+  @include mixin.sm {
+    font-size: 4rem;
+  }
+  @include mixin.xs {
+    font-size: 2.5rem;
+  }
+  @include mixin.xxs {
+    font-size: 2rem;
+  }
+}
+
+.item::before {
+  content: "";
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0.5;
+  width: 100%;
+  height: 50%;
+  top: 0;
+  position: absolute;
+}
+
+.round1,
+.round2 {
+  width: 15px;
+  height: 15px;
+  background: hsl(234, 17%, 12%);
+  position: absolute;
+  top: 50%;
+  border-radius: 50%;
+  @include mixin.sm {
+    width: 12px;
+    height: 12px;
+  }
+  @include mixin.xs {
+    width: 10px;
+    height: 10px;
+  }
+  @include mixin.xxs {
+    width: 8px;
+    height: 8px;
+  }
+}
+
+.round1 {
+  transform: translate(-50%, -50%);
+}
+
+.round2 {
+  right: 0;
+  transform: translate(50%, -50%);
+}
+
+.social-bar {
+  position: absolute;
+  bottom: 5rem;
+  width: 125px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.svg-inline--fa {
+  font-size: 2rem;
+  color: hsl(237, 18%, 59%);
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.svg-inline--fa:hover {
+  color: hsl(345, 95%, 68%);
+}
