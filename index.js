@@ -29,7 +29,7 @@ function getCurrentDate() {
 }
 
 function getTargetDate() {
-  return new Date("july 30 2022 12:00:00")
+  return new Date("february 28 2023 12:00:00")
 }
 
 function expiredDate(currentDate, targetDate) {
